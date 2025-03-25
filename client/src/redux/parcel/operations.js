@@ -49,11 +49,11 @@ export const deleteParcel = createAsyncThunk(
   'parcels/delete',
   async (id, thunkAPI) => {
     try {
-      const response = await axios.delete(`/parcels/${id}`);
-      return response.data;
+      await axios.delete(`/parcels/${id}`);
+      return id;
     } catch (error) {
       return thunkAPI.rejectWithValue(
-        error.response?.data || 'Failed to delete parcel'
+        error.response?.data?.message || 'Failed to delete parcel'
       );
     }
   }

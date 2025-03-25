@@ -52,7 +52,7 @@ const parcelsSlice = createSlice({
       .addCase(createParcel.rejected, handleRejected)
       .addCase(deleteParcel.pending, handlePending)
       .addCase(deleteParcel.fulfilled, (state, action) => {
-        const deletedId = action.payload.data._id;
+        const deletedId = action.payload;
         state.items = state.items.filter(item => item._id !== deletedId);
         state.loading = false;
       })
