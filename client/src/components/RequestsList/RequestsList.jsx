@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Typography } from 'antd';
+import { Typography } from 'antd';
 import RequestItem from '../RequestItem/RequestItem';
 import css from './RequestsList.module.css';
 
@@ -12,13 +12,13 @@ const RequestsList = ({ parcels }) => {
         Parcels List
       </Title>
 
-      <Flex gap="middle" wrap="wrap" justify="start" align="stretch">
+      <div className={css.grid}>
         {parcels.map(parcel => (
-          <Flex key={parcel._id} flex="1 1 350px">
+          <div key={parcel._id} className={css.gridItem}>
             <RequestItem parcel={parcel} />
-          </Flex>
+          </div>
         ))}
-      </Flex>
+      </div>
     </div>
   );
 };
